@@ -3,7 +3,7 @@
 /app/css/
 /**/*.psd
 /**/Thumbs.db
-/app/libs/
+/app/libs/*
 !/app/libs/sweetalert
 !/app/libs/bootstrap-grid
 *.log
