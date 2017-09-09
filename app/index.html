@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="utf-8">
+
+	<title>test_legko</title>
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="img/favicon/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-touch-icon-114x114.png">
+
+	<link rel="stylesheet" href="css/main.min.css">
+
+</head>
+<body ng-app="hexApp" ng-controller="mainCtrl">
+
+	<div class="container">
+		<div class="hex">
+			<h1 class="title">Управление карточками</h1>
+
+			<form class="hex__form form" ng-submit="saveColor()" name="colorForm" novalidate>
+				<div class="row">
+					<div class="col-sm-6">
+						<input type="text" name="hex" class="form__field field" placeholder="HEX значение" ng-model="color" required pattern="^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$" autofocus>
+					</div>
+					<div class="col-sm-6"><input type="submit" class="form__button button" ng-click="saveColor()" ng-disabled="colorForm.$invalid" value="Добавить"></div>
+				</div>
+			</form>
+
+			<div class="hex__cards cards ng-cloak" ng-init="readColors()">
+				<div class="row">
+
+					<div class="col-xs-6 col-sm-3" ng-repeat="card in cards">
+						<div class="cards__item card">
+							<div class="card__sample" ng-style="{'background-color':card.hex}"></div>
+							<div class="card__code">{{card.hex}}</div>
+							<div class="card__fave icon" ng-click="addToFav($index)">
+								<img src="img/card/star.svg" alt="star" ng-if="!card.fave" class="icon__img" title="Добавить в избранное">
+								<img src="img/card/star_full.svg" alt="star" ng-if="card.fave" class="icon__img" title="Удалить из избранного">
+							</div>
+							<div class="card__del icon" ng-click="delCard($index,card.hex)"><img src="img/card/basket.svg" alt="basket" class="icon__img" title="Удалить"></div>
+						</div>
+					</div>
+
+					<div class="col-xs-12" ng-if="cards.length === 0">
+						<div class="no-cards">Пока не добавлено ни одного цвета</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="js/scripts.min.js"></script>
+
+</body>
+</html>
