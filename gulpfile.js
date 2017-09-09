@@ -10,12 +10,16 @@ var gulp           = require('gulp'),
 		imagemin       = require('gulp-imagemin'),
 		cache          = require('gulp-cache'),
 		autoprefixer   = require('gulp-autoprefixer'),
-		bourbon        = require('node-bourbon'),
 		ftp            = require('vinyl-ftp'),
 		notify         = require("gulp-notify");
 
 gulp.task('scripts', function() {
 	return gulp.src([
+		'app/libs/angular/angular.min.js',
+		'app/libs/angular-locale-ru/angular-locale_ru.js',
+		'app/libs/ngSweetAlert/SweetAlert.min.js',
+		'app/libs/sweetalert/sweet-alert.min.js',
+		'app/js/hex-app/app.js'
 		])
 	.pipe(concat('scripts.min.js'))
 	.pipe(uglify())
@@ -34,9 +38,7 @@ gulp.task('browser-sync', function() {
 
 gulp.task('sass', function() {
 	return gulp.src('app/sass/**/*.sass')
-	.pipe(sass({
-		includePaths: bourbon.includePaths
-	}).on("error", notify.onError()))
+	.pipe(sass().on("error", notify.onError()))
 	.pipe(rename({suffix: '.min', prefix : ''}))
 	.pipe(autoprefixer(['last 15 versions']))
 	.pipe(cleanCSS())
@@ -46,7 +48,7 @@ gulp.task('sass', function() {
 
 gulp.task('watch', ['sass', 'scripts', 'browser-sync'], function() {
 	gulp.watch('app/sass/**/*.sass', ['sass']);
-	gulp.watch(['libs/**/*.js'], ['scripts']);
+	gulp.watch(['libs/**/*.js', 'app/js/hex-app/**/*.js'], ['scripts']);
 	gulp.watch('app/**/*.html', browserSync.reload);
 });
 

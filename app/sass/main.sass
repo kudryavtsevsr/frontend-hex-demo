@@ -8,4 +8,149 @@ body
 	position: relative
 	font-family: $default-font
 
+.ng-cloak
+	display: none !important
+
+// ---- Основные стили ----
+
+// Контейнер
+.hex
+	padding-top: 70px
+	padding-bottom: 30px
+	position: relative
+	overflow: hidden
+	&__form
+		margin: 55px auto 0 auto
+	&__cards
+		margin: 58px auto 0 auto
+
+// Заголовок
+.title
+	text-align: center
+	font-size: 36px
+	color: $main-color
+	font-weight: normal
+	line-height: 1.2
+
+// Форма
+.form
+	max-width: 510px
+	background-color: #F8F8F8
+	border-radius: 6px
+	padding: 33px 30px
+	&__field
+		max-width: 210px
+	&__button
+		max-width: 210px
+
+.field
+	width: 100%
+	border: 1px solid rgba($main-color, .4)
+	border-radius: 4px
+	font-size: 15px
+	padding: 11px 12px 10px 12px
+	color: $main-color
+	&:placeholder
+		color: rgba($main-color, .4)
+	&.ng-invalid.ng-dirty
+		border-color: #d9534f
+		box-shadow: inset 0px 0px 4px 0px #d9534f
+
+.button
+	width: 100%
+	height: 44px
+	border-radius: 4px
+	font-size: 15px
+	padding: 7px 12px 11px 12px
+	text-align: center
+	color: #fff
+	background-color: $main-color
+	border: none
+	&:hover
+		background-color: lighten($main-color, 5)
+	&:active
+		background-color: darken($main-color, 2)
+	&:disabled
+		cursor: not-allowed
+
+// Карточки цветов
+.cards
+	width: 100%
+	max-width: 930px
+	padding: 0 30px
+	&__item
+		margin-bottom: 30px
+
+@keyframes swing
+	20%
+		transform: rotate3d(0, 0, 1, 15deg)
+	40%
+		transform: rotate3d(0, 0, 1, -10deg)
+	60%
+		transform: rotate3d(0, 0, 1, 5deg)
+	80%
+		transform: rotate3d(0, 0, 1, -5deg)
+	to
+		transform: rotate3d(0, 0, 1, 0deg)
+
+.card
+	position: relative
+	padding: 47px 13px 70px 13px
+	width: 100%
+	max-width: 210px
+	height: 270px
+	border: 1px solid rgba($main-color, .2)
+	transform-origin: top center
+	border-radius: 9px
+	animation: swing 1s ease-out alternate
+	transition: box-shadow .5s ease-out
+	&:hover
+		box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2)
+		transition: box-shadow .5s ease-out
+	&__sample
+		margin: 0 auto
+		width: 62px
+		height: 62px
+		border-radius: 6px
+	&__code
+		margin-top: 12px
+		font-size: 24px
+		color: rgba($main-color, .4)
+		text-align: center
+	&__fave
+		position: absolute
+		cursor: pointer
+		width: 29px
+		height: 29px
+		bottom: 19px
+		left: 13px
+	&__del
+		position: absolute
+		cursor: pointer
+		width: 23px
+		height: 30px
+		bottom: 19px
+		right: 13px
+
+@keyframes scale
+	0%
+		transform: scale(1)
+	60%
+		transform: scale(1.3)
+	100%
+		transform: scale(1.15)
+
+.icon
+	transform: scale(1)
+	transition: transform .2s ease-in-out
+	&:hover
+		transform: scale(1.15)
+		animation: scale .2s ease-out
+	&__img
+		width: 100%
+
+.no-cards
+	text-align: center
+	color: rgba($main-color, .4)
+
 @import "media"
