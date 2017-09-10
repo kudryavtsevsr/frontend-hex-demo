@@ -35,7 +35,7 @@
 			<div class="hex__cards cards ng-cloak" ng-init="readColors()">
 				<div class="row">
 
-					<div class="col-xs-6 col-sm-3" ng-repeat="card in cards">
+					<div class="col-xs-6 col-sm-3 cards__wrap" ng-repeat="card in cards">
 						<div class="cards__item card">
 							<div class="card__sample" ng-style="{'background-color':card.hex}"></div>
 							<div class="card__code">{{card.hex}}</div>

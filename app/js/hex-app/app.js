@@ -1,4 +1,4 @@
-var hexApp = angular.module('hexApp', ['oitozero.ngSweetAlert'])
+var hexApp = angular.module('hexApp', ['oitozero.ngSweetAlert', 'ngAnimate'])
 
 .controller('mainCtrl', ['$scope', 'SweetAlert', function($scope, SweetAlert) {
 	$scope.color = "";

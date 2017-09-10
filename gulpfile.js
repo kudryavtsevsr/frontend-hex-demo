@@ -17,6 +17,7 @@ gulp.task('scripts', function() {
 	return gulp.src([
 		'app/libs/angular/angular.min.js',
 		'app/libs/angular-locale-ru/angular-locale_ru.js',
+		'app/libs/angular-animate/angular-animate.min.js',
 		'app/libs/ngSweetAlert/SweetAlert.min.js',
 		'app/libs/sweetalert/sweet-alert.min.js',
 		'app/js/hex-app/app.js'
